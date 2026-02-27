@@ -3,13 +3,217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Schreinerei für maßgeschneiderte Küchen, Möbel, Bäder und Innenausbau.">
-    <title>Schreinerei Nowak - Handwerk mit Leidenschaft</title>
+    <meta name="description" content="Schreinerei Nowak in Kleinrinderfeld - Ihr Schreiner & Tischler für Möbel, Küchen, Fenster und Böden. Meisterbetrieb seit 1987. Jetzt beraten lassen: 09366 1234556">
+    <title>Schreinerei Nowak Kleinrinderfeld | Schreiner & Tischler seit 1987</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <!-- Password Protection - Must run immediately -->
+    <script>
+        // Simple Password Protection
+        (function() {
+            const CORRECT_PASSWORD = 'nowak2024';
+            const SESSION_KEY = 'schreinerei_nowak_auth';
+
+            // Check if already authenticated
+            if (sessionStorage.getItem(SESSION_KEY) === 'true') {
+                return;
+            }
+
+            // Block page immediately
+            document.addEventListener('DOMContentLoaded', function() {
+                // Create overlay
+                const overlay = document.createElement('div');
+                overlay.id = 'password-overlay';
+                overlay.innerHTML = `
+                    <style>
+                        #password-overlay {
+                            position: fixed;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            background: linear-gradient(135deg, #8E6C4B 0%, #645749 100%);
+                            z-index: 999999;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+                        }
+                        #password-box {
+                            background: white;
+                            padding: 50px 40px;
+                            border-radius: 12px;
+                            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+                            max-width: 400px;
+                            width: 90%;
+                            text-align: center;
+                        }
+                        #password-box h1 {
+                            margin: 0 0 10px 0;
+                            font-family: 'Playfair Display', serif;
+                            font-size: 32px;
+                            color: #2c2c2c;
+                        }
+                        #password-box p {
+                            margin: 0 0 30px 0;
+                            color: #666;
+                            font-size: 16px;
+                        }
+                        #password-input {
+                            width: 100%;
+                            padding: 15px;
+                            border: 2px solid #e0e0e0;
+                            border-radius: 6px;
+                            font-size: 16px;
+                            margin-bottom: 15px;
+                            box-sizing: border-box;
+                            font-family: 'Manrope', sans-serif;
+                            transition: border-color 0.3s;
+                        }
+                        #password-input:focus {
+                            outline: none;
+                            border-color: #8E6C4B;
+                        }
+                        #password-submit {
+                            width: 100%;
+                            padding: 15px;
+                            background: #8E6C4B;
+                            color: white;
+                            border: none;
+                            border-radius: 6px;
+                            font-size: 16px;
+                            font-weight: 600;
+                            cursor: pointer;
+                            transition: background 0.3s;
+                            font-family: 'Manrope', sans-serif;
+                        }
+                        #password-submit:hover {
+                            background: #7f5a35;
+                        }
+                        #password-error {
+                            color: #d32f2f;
+                            font-size: 14px;
+                            margin-top: 10px;
+                            min-height: 20px;
+                        }
+                        .password-icon {
+                            width: 60px;
+                            height: 60px;
+                            margin: 0 auto 20px;
+                            background: #f5f5f5;
+                            border-radius: 50%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 28px;
+                        }
+                        @keyframes shake {
+                            0%, 100% { transform: translateX(0); }
+                            25% { transform: translateX(-10px); }
+                            75% { transform: translateX(10px); }
+                        }
+                    </style>
+                    <div id="password-box">
+                        <div class="password-icon">🔒</div>
+                        <h1>Schreinerei Nowak</h1>
+                        <p>Diese Seite ist passwortgeschützt.<br>Bitte geben Sie das Passwort ein.</p>
+                        <form id="password-form">
+                            <input
+                                type="password"
+                                id="password-input"
+                                placeholder="Passwort eingeben..."
+                                autocomplete="off"
+                                autofocus
+                            />
+                            <button type="submit" id="password-submit">Zugang erhalten</button>
+                            <div id="password-error"></div>
+                        </form>
+                    </div>
+                `;
+
+                document.body.appendChild(overlay);
+                document.body.style.overflow = 'hidden';
+
+                // Handle form submission
+                const form = document.getElementById('password-form');
+                const input = document.getElementById('password-input');
+                const errorDiv = document.getElementById('password-error');
+
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const enteredPassword = input.value;
+
+                    if (enteredPassword === CORRECT_PASSWORD) {
+                        sessionStorage.setItem(SESSION_KEY, 'true');
+                        overlay.style.transition = 'opacity 0.5s';
+                        overlay.style.opacity = '0';
+                        setTimeout(function() {
+                            overlay.remove();
+                            document.body.style.overflow = '';
+                        }, 500);
+                    } else {
+                        errorDiv.textContent = 'Falsches Passwort. Bitte versuchen Sie es erneut.';
+                        input.value = '';
+                        input.focus();
+                        const box = document.getElementById('password-box');
+                        box.style.animation = 'shake 0.5s';
+                        setTimeout(function() {
+                            box.style.animation = '';
+                        }, 500);
+                    }
+                });
+            });
+        })();
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "@id": "https://schreinerei-nowak.de",
+      "name": "Schreinerei Nowak",
+      "image": "https://schreinerei-nowak.de/assets/logo.png",
+      "description": "Schreinerei in Kleinrinderfeld für maßgeschneiderte Küchen, Möbel, Fenster, Böden und Innenausbau seit 1987.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Kirchheimer Str. 17",
+        "addressLocality": "Kleinrinderfeld",
+        "postalCode": "97271",
+        "addressCountry": "DE",
+        "addressRegion": "Bayern"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "49.696699",
+        "longitude": "9.843532"
+      },
+      "telephone": "+49-9366-1234556",
+      "email": "info@schreinerei-nowak.de",
+      "url": "https://schreinerei-nowak.de",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "07:00",
+          "closes": "16:00"
+        }
+      ],
+      "priceRange": "$$",
+      "areaServed": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": "49.696699",
+          "longitude": "9.843532"
+        },
+        "geoRadius": "30000"
+      },
+      "serviceType": ["Schreinerei", "Tischlerei", "Möbelbau", "Küchenbau", "Innenausbau", "Fensterbau"],
+      "foundingDate": "1987"
+    }
+    </script>
 </head>
 <body>
     <!-- Header -->
