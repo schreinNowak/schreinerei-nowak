@@ -1,0 +1,67 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "uploads"
+public_folder: "/uploads"
+
+collections:
+  # Services (Leistungen)
+  - name: "services"
+    label: "Leistungen"
+    folder: "data/services"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Titel", name: "title", widget: "string"}
+      - {label: "Untertitel", name: "subtitle", widget: "string"}
+      - {label: "Beschreibung", name: "description", widget: "text"}
+      - {label: "Reihenfolge", name: "order", widget: "number"}
+      - {label: "Bild", name: "image", widget: "image"}
+      - {label: "Details", name: "details", widget: "markdown", required: false}
+
+  # Portfolio (NEU)
+  - name: "portfolio"
+    label: "Portfolio"
+    folder: "data/portfolio"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Projekttitel", name: "title", widget: "string"}
+      - {label: "Kategorie", name: "category", widget: "select",
+         options: ["Fenster", "Möbel", "Fußböden", "Sonstiges"]}
+      - {label: "Beschreibung", name: "description", widget: "markdown"}
+      - label: "Bilder"
+        name: "images"
+        widget: "list"
+        fields:
+          - {label: "Bild", name: "src", widget: "image"}
+          - {label: "Beschreibung", name: "alt", widget: "string"}
+      - {label: "Fertigstellung", name: "date", widget: "datetime"}
+      - {label: "Auf Startseite anzeigen", name: "featured", widget: "boolean", default: false}
+
+  # Team
+  - name: "team"
+    label: "Team"
+    folder: "data/team"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Position", name: "role", widget: "string"}
+      - {label: "Foto", name: "photo", widget: "image"}
+      - {label: "Reihenfolge", name: "order", widget: "number"}
+
+  # Firmen-Einstellungen
+  - name: "settings"
+    label: "Einstellungen"
+    files:
+      - label: "Firmendaten"
+        name: "company"
+        file: "data/settings.json"
+        fields:
+          - {label: "Firmenname", name: "companyName", widget: "string"}
+          - {label: "Adresse", name: "address", widget: "text"}
+          - {label: "Telefon", name: "phone", widget: "string"}
+          - {label: "E-Mail", name: "email", widget: "string"}
+          - {label: "Öffnungszeiten", name: "hours", widget: "text"}

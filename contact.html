@@ -24,10 +24,11 @@
                     <span></span>
                 </button>
                 <ul class="nav-list">
-                    <li><a href="index.html" class="nav-link">Startseite</a></li>
-                    <li><a href="services.html" class="nav-link">Leistungen</a></li>
+                    <li><a href="index.html#home" class="nav-link">Startseite</a></li>
+                    <li><a href="index.html#services" class="nav-link">Leistungen</a></li>
+                    <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
                     <li><a href="about.html" class="nav-link">Über uns</a></li>
-                    <li><a href="contact.html" class="nav-link active">Kontakt</a></li>
+                    <li><a href="index.html#contact" class="nav-link active">Kontakt</a></li>
                 </ul>
             </nav>
         </div>
@@ -112,7 +113,8 @@
                         <p class="form-description">Teilen Sie uns Ihr Projekt mit – wir melden uns innerhalb von 24 Stunden.</p>
                     </div>
 
-                    <form class="contact-form" action="#" method="POST">
+                    <form class="contact-form" name="contact" method="POST" data-netlify="true">
+                        <input type="hidden" name="form-name" value="contact">
                         <div class="form-group">
                             <label for="name" class="form-label">Ihr Name*</label>
                             <input type="text" id="name" name="name" class="form-input" required>

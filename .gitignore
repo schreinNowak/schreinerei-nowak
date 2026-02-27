@@ -1,0 +1,12 @@
+# MacOS
+.DS_Store
+
+# Logs
+*.log
+
+# Editor
+.vscode/
+.idea/
+
+# Local Netlify
+.netlify/

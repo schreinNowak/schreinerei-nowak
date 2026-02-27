@@ -26,6 +26,7 @@
                 <ul class="nav-list">
                     <li><a href="#home" class="nav-link active">Startseite</a></li>
                     <li><a href="#services" class="nav-link">Leistungen</a></li>
+                    <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
                     <li><a href="#team" class="nav-link">Team</a></li>
                     <li><a href="#contact" class="nav-link">Kontakt</a></li>
                 </ul>
@@ -59,41 +60,7 @@
             </div>
 
             <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-number">01</div>
-                    <div class="service-image-wrapper">
-                        <img src="service_1.jpg" alt="Fenster" class="service-image">
-                    </div>
-                    <div class="service-content">
-                        <h3 class="service-title">Fenster</h3>
-                        <p class="service-subtitle">Individuell</p>
-                        <p class="service-description">Individuelle Fensterlösungen, die sich perfekt in Ihr Zuhause einfügen. Wir bieten maßgeschneiderte Beratung und Design, um Ihre Wünsche zu realisieren.</p>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-number">02</div>
-                    <div class="service-image-wrapper">
-                        <img src="service_2.jpg" alt="Möbel" class="service-image">
-                    </div>
-                    <div class="service-content">
-                        <h3 class="service-title">Möbel</h3>
-                        <p class="service-subtitle">Einzigartig</p>
-                        <p class="service-description">Einzigartige Möbelstücke, die genau nach Ihren Vorstellungen gestaltet werden. Jedes Möbelstück wird bevorzugt aus hochwertigem Massivholz gefertigt.</p>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-number">03</div>
-                    <div class="service-image-wrapper">
-                        <img src="service_3.jpg" alt="Fußböden" class="service-image">
-                    </div>
-                    <div class="service-content">
-                        <h3 class="service-title">Fußböden</h3>
-                        <p class="service-subtitle">Wohlbefinden</p>
-                        <p class="service-description">Unsere Fußböden schaffen eine Atmosphäre des Wohlbefindens mit natürlichen Materialien für ein gesundes Raumklima.</p>
-                    </div>
-                </div>
+                <!-- Services werden dynamisch von content-loader.js geladen -->
             </div>
         </div>
     </section>
@@ -107,38 +74,23 @@
             </div>
 
             <div class="team-grid">
-                <div class="team-card">
-                    <div class="team-image-wrapper">
-                        <img src="service_1.jpg" alt="Michael Nowak" class="team-image">
-                        <div class="team-overlay"></div>
-                    </div>
-                    <div class="team-info">
-                        <h3 class="team-name">Michael Nowak</h3>
-                        <p class="team-role">Meister · Geschäftsführer</p>
-                    </div>
-                </div>
+                <!-- Team-Mitglieder werden dynamisch von content-loader.js geladen -->
+            </div>
+        </div>
+    </section>
 
-                <div class="team-card">
-                    <div class="team-image-wrapper">
-                        <img src="service_2.jpg" alt="Igor Ovchek" class="team-image">
-                        <div class="team-overlay"></div>
-                    </div>
-                    <div class="team-info">
-                        <h3 class="team-name">Igor Ovchek</h3>
-                        <p class="team-role">Geselle</p>
-                    </div>
-                </div>
-
-                <div class="team-card">
-                    <div class="team-image-wrapper">
-                        <img src="service_3.jpg" alt="Maik Musk" class="team-image">
-                        <div class="team-overlay"></div>
-                    </div>
-                    <div class="team-info">
-                        <h3 class="team-name">Maik Musk</h3>
-                        <p class="team-role">Lehrling</p>
-                    </div>
-                </div>
+    <!-- Featured Portfolio Section -->
+    <section class="featured-portfolio">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle">Referenzen</p>
+                <h2 class="section-title">Aktuelle Projekte</h2>
+            </div>
+            <div class="featured-grid">
+                <!-- Featured Portfolio wird von content-loader.js geladen -->
+            </div>
+            <div style="text-align: center;">
+                <a href="portfolio.html" class="btn-primary">Alle Projekte ansehen</a>
             </div>
         </div>
     </section>
@@ -211,7 +163,8 @@
                         <p class="form-description">Teilen Sie uns Ihr Projekt mit – wir melden uns innerhalb von 24 Stunden.</p>
                     </div>
 
-                    <form class="contact-form" action="#" method="POST">
+                    <form class="contact-form" name="contact" method="POST" data-netlify="true">
+                        <input type="hidden" name="form-name" value="contact">
                         <div class="form-group">
                             <label for="name" class="form-label">Ihr Name*</label>
                             <input type="text" id="name" name="name" class="form-input" required>
@@ -257,6 +210,7 @@
         </div>
     </footer>
 
+    <script src="js/content-loader.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

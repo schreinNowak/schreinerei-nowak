@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio und Referenzen der Schreinerei Nowak - Einblick in abgeschlossene Projekte.">
+    <title>Portfolio - Schreinerei Nowak</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html" class="logo-link">
+                    <span class="logo-text">Schreinerei<br><strong>Nowak</strong></span>
+                </a>
+            </div>
+            <nav class="nav">
+                <button class="nav-toggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-list">
+                    <li><a href="index.html#home" class="nav-link">Startseite</a></li>
+                    <li><a href="index.html#services" class="nav-link">Leistungen</a></li>
+                    <li><a href="portfolio.html" class="nav-link active">Portfolio</a></li>
+                    <li><a href="index.html#team" class="nav-link">Team</a></li>
+                    <li><a href="index.html#contact" class="nav-link">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Portfolio Hero -->
+    <section class="portfolio-hero">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <h1 class="portfolio-hero-title fade-in-up">Unsere Referenzen</h1>
+            <p class="portfolio-hero-subtitle fade-in-up-delay">Ein Einblick in abgeschlossene Projekte</p>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio-section">
+        <div class="container">
+            <!-- Filter -->
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-category="all">Alle</button>
+                <button class="filter-btn" data-category="Fenster">Fenster</button>
+                <button class="filter-btn" data-category="Möbel">Möbel</button>
+                <button class="filter-btn" data-category="Fußböden">Fußböden</button>
+                <button class="filter-btn" data-category="Sonstiges">Sonstiges</button>
+            </div>
+
+            <!-- Portfolio Grid -->
+            <div class="portfolio-grid">
+                <!-- Wird von portfolio.js gefüllt -->
+                <p class="loading-message">Projekte werden geladen...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Schreinerei Nowak</h3>
+                    <p>Handwerk seit 1987</p>
+                    <p>Ihre Schreinerei für Fenster, Böden und Möbel</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Kontakt</h3>
+                    <p>Kleinrinderfelder Str. 17</p>
+                    <p>97271 Kleinrinderfeld</p>
+                    <p>Tel: <span class="contact-phone">09366 1234556</span></p>
+                    <p>E-Mail: <span class="contact-email">info@schreinerei-nowak.de</span></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Öffnungszeiten</h3>
+                    <p>Mo-Fr: 07:00 - 16:00 Uhr</p>
+                    <p>Sa-So: Geschlossen</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Schreinerei Nowak. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/content-loader.js"></script>
+    <script src="js/portfolio.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
