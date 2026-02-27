@@ -1,7 +1,8 @@
 ---
 title: Möbel
 subtitle: Einzigartig
-description: Maßgefertigte Möbel, die perfekt zu Ihrem Raum passen. Vom Entwurf bis zur Umsetzung begleiten wir Sie.
+description: Maßgefertigte Möbel, die perfekt zu Ihrem Raum passen. Vom Entwurf
+  bis zur Umsetzung begleiten wir Sie..
 order: 2
 image: /uploads/service_2.jpg
 ---
