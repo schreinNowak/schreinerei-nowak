@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Schreinerei Nowak - Website mit Decap CMS
 
 Statische Website für Schreinerei Nowak mit integriertem Content Management System.
@@ -202,3 +203,7 @@ Bei Fragen zur Implementierung:
 ## 📄 Lizenz
 
 Proprietary - Schreinerei Nowak © 2025
+=======
+# schreinerei-nowak
+Schreinerei
+>>>>>>> 29c9e14c1f743f8ee7d9f0dafc12f4b4ecb57ae1
