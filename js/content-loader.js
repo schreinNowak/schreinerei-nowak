@@ -12,31 +12,64 @@ function parseFrontmatter(content) {
     return { data: {}, content: content };
   }
 
-  const [, frontmatter, markdown] = match;
+  const [, frontmatterText, markdown] = match;
   const data = {};
 
-  // Parse YAML-ähnliche Frontmatter
-  frontmatter.split('\n').forEach(line => {
-    const colonIndex = line.indexOf(':');
-    if (colonIndex > -1) {
-      const key = line.substring(0, colonIndex).trim();
-      let value = line.substring(colonIndex + 1).trim();
+  // Parse YAML-ähnliche Frontmatter mit Listen-Unterstützung
+  const lines = frontmatterText.split('\n');
+  let currentKey = null;
+  let currentList = null;
+  let currentListItem = null;
 
-      // Entferne Anführungszeichen
-      if (value.startsWith('"') && value.endsWith('"')) {
-        value = value.slice(1, -1);
+  lines.forEach(line => {
+    // Liste-Item mit Unterpunkten
+    if (line.match(/^\s{2,4}-\s+\w+:/)) {
+      const keyMatch = line.match(/^\s{2,4}-\s+(\w+):\s*(.*)$/);
+      if (keyMatch && currentList) {
+        currentListItem = {};
+        const [, key, value] = keyMatch;
+        currentListItem[key] = value.replace(/^["']|["']$/g, '');
+        currentList.push(currentListItem);
       }
-
-      // Konvertiere Zahlen
-      if (!isNaN(value) && value !== '') {
-        value = Number(value);
+    }
+    // Weitere Eigenschaften des List-Items
+    else if (line.match(/^\s{4,6}\w+:/) && currentListItem) {
+      const keyMatch = line.match(/^\s{4,6}(\w+):\s*(.*)$/);
+      if (keyMatch) {
+        const [, key, value] = keyMatch;
+        currentListItem[key] = value.replace(/^["']|["']$/g, '');
       }
+    }
+    // Neue Liste
+    else if (line.match(/^\w+:\s*$/)) {
+      const key = line.replace(':', '').trim();
+      currentKey = key;
+      currentList = [];
+      data[key] = currentList;
+    }
+    // Einfaches Key-Value
+    else {
+      const colonIndex = line.indexOf(':');
+      if (colonIndex > -1 && !line.match(/^\s{2,}/)) {
+        const key = line.substring(0, colonIndex).trim();
+        let value = line.substring(colonIndex + 1).trim();
 
-      // Konvertiere Booleans
-      if (value === 'true') value = true;
-      if (value === 'false') value = false;
+        if (value.startsWith('"') && value.endsWith('"')) {
+          value = value.slice(1, -1);
+        }
 
-      data[key] = value;
+        if (!isNaN(value) && value !== '') {
+          value = Number(value);
+        }
+
+        if (value === 'true') value = true;
+        if (value === 'false') value = false;
+
+        data[key] = value;
+        currentKey = key;
+        currentList = null;
+        currentListItem = null;
+      }
     }
   });
 
