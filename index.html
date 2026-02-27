@@ -368,8 +368,11 @@
                         <p class="form-description">Teilen Sie uns Ihr Projekt mit – wir melden uns innerhalb von 24 Stunden.</p>
                     </div>
 
-                    <form class="contact-form" name="contact" method="POST" data-netlify="true">
+                    <form class="contact-form" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="/success.html">
                         <input type="hidden" name="form-name" value="contact">
+                        <p style="display: none;">
+                            <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                        </p>
                         <div class="form-group">
                             <label for="name" class="form-label">Ihr Name*</label>
                             <input type="text" id="name" name="name" class="form-input" required>
