@@ -311,40 +311,49 @@ async function loadSettings() {
     const response = await fetch('/data/settings.json');
     const settings = await response.json();
 
-    // Telefon (mehrfach vorhanden)
-    document.querySelectorAll('.contact-phone, .footer-phone').forEach(el => {
+    // Telefon im Kontaktbereich (als Link)
+    const phoneLinks = document.querySelectorAll('a.contact-link[href^="tel:"]');
+    phoneLinks.forEach(link => {
+      link.textContent = settings.phone;
+      link.href = `tel:+49${settings.phone.replace(/\s/g, '')}`;
+    });
+
+    // Telefon im Footer
+    document.querySelectorAll('.footer-phone').forEach(el => {
       el.textContent = settings.phone;
-      // Update auch href wenn es ein Link ist
-      const parent = el.closest('a');
-      if (parent) parent.href = `tel:+49${settings.phone.replace(/\s/g, '')}`;
     });
 
-    // E-Mail (mehrfach vorhanden)
-    document.querySelectorAll('.contact-email, .footer-email').forEach(el => {
+    // E-Mail im Kontaktbereich (als Link)
+    const emailLinks = document.querySelectorAll('a.contact-link[href^="mailto:"]');
+    emailLinks.forEach(link => {
+      link.textContent = settings.email;
+      link.href = `mailto:${settings.email}`;
+    });
+
+    // E-Mail im Footer
+    document.querySelectorAll('.footer-email').forEach(el => {
       el.textContent = settings.email;
-      const parent = el.closest('a');
-      if (parent) parent.href = `mailto:${settings.email}`;
     });
 
-    // Adresse
-    const addressElement = document.querySelector('.contact-value strong');
-    if (addressElement && addressElement.parentElement) {
-      addressElement.parentElement.innerHTML = `<strong>${settings.companyName}</strong><br>${settings.address.replace(/\n/g, '<br>')}`;
+    // Adresse im Kontaktbereich
+    const addressBlock = document.querySelector('.contact-block:first-child .contact-value');
+    if (addressBlock) {
+      addressBlock.innerHTML = `<strong>${settings.companyName}</strong><br>${settings.address.replace(/\n/g, '<br>')}`;
     }
 
-    // Öffnungszeiten
-    const hoursElement = document.querySelector('.contact-block:nth-child(3) .contact-value');
-    if (hoursElement) {
-      hoursElement.innerHTML = `${settings.hours}<br><span class="contact-note">(Unsere Geschäftszeiten)</span>`;
+    // Öffnungszeiten im Kontaktbereich
+    const hoursBlock = document.querySelector('.contact-block:nth-child(3) .contact-value');
+    if (hoursBlock) {
+      hoursBlock.innerHTML = `${settings.hours}<br><span class="contact-note">(Unsere Geschäftszeiten)</span>`;
     }
 
-    // Bürozeiten
+    // Bürozeiten im Kontaktbereich
     if (settings.officeHours) {
-      const officeElement = document.querySelector('.contact-block:nth-child(4) .contact-value');
-      if (officeElement) officeElement.textContent = settings.officeHours;
+      const officeBlock = document.querySelector('.contact-block:nth-child(4) .contact-value');
+      if (officeBlock) officeBlock.textContent = settings.officeHours;
     }
 
-    // Hinweistext
+    // Hinweistext im Kontaktbereich
     if (settings.contactNote) {
       const noteElement = document.querySelector('.contact-text');
       if (noteElement) noteElement.textContent = settings.contactNote;
