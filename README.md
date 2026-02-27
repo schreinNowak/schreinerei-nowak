@@ -1,2 +1,2 @@
-# schreinerei_nowak
+# schreinerei-nowak
 Schreinerei
