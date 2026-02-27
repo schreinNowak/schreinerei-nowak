@@ -67,6 +67,14 @@ function parseFrontmatter(content) {
       currentList = [];
       data[key] = currentList;
     }
+    // Fortsetzungszeile (YAML folded style - eingerückt, kein neuer Key)
+    else if (line.match(/^\s{2}\S/) && currentKey && !currentList) {
+      // Dies ist eine Fortsetzungszeile für den vorherigen Wert
+      const continuedText = line.trim();
+      if (typeof data[currentKey] === 'string') {
+        data[currentKey] += ' ' + continuedText;
+      }
+    }
     // Einfaches Key-Value
     else {
       const colonIndex = line.indexOf(':');
@@ -98,7 +106,7 @@ function parseFrontmatter(content) {
         if (value === 'true') value = true;
         if (value === 'false') value = false;
 
-        data[key] = value;
+        data[key] = value;  // WICHTIG: data[key] NICHT data[currentKey]!
         currentKey = key;
         currentList = null;
         currentListItem = null;
