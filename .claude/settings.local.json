@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 << 'EOF'\nimport pandas as pd\n\n# Requirements Export lesen\nreq_export_path = \"/Users/HER2LO/Library/CloudStorage/OneDrive-BoschGroup/Share/req_export_vv_plan.xlsx\"\n\nprint\\(\"=\" * 80\\)\nprint\\(\"REQUIREMENTS EXPORT STRUKTUR\"\\)\nprint\\(\"=\" * 80\\)\n\nexcel_file = pd.ExcelFile\\(req_export_path\\)\nprint\\(f\"\\\\nTabellenblätter: {excel_file.sheet_names}\\\\n\"\\)\n\nfor sheet_name in excel_file.sheet_names:\n    print\\(\"\\\\n\" + \"=\" * 80\\)\n    print\\(f\"TABELLENBLATT: {sheet_name}\"\\)\n    print\\(\"=\" * 80\\)\n    df = pd.read_excel\\(req_export_path, sheet_name=sheet_name\\)\n    print\\(f\"\\\\nSpalten: {list\\(df.columns\\)}\"\\)\n    print\\(f\"Anzahl Zeilen: {len\\(df\\)}\"\\)\n    print\\(\"\\\\nErste 3 Zeilen:\"\\)\n    print\\(df.head\\(3\\).to_string\\(\\)\\)\n    \n    # Zeige auch unique Werte für wichtige Spalten\n    if 'State' in df.columns:\n        print\\(f\"\\\\nUnique States: {df['State'].unique\\(\\)}\"\\)\n    if 'Tags.REQ_Legal' in df.columns:\n        print\\(f\"\\\\nREQ_Legal values: {df['Tags.REQ_Legal'].unique\\(\\)}\"\\)\n        print\\(f\"REQ_Security values: {df['Tags.REQ_Security'].unique\\(\\)}\"\\)\n        print\\(f\"REQ_Safety values: {df['Tags.REQ_Safety'].unique\\(\\)}\"\\)\n\nEOF)",
+      "Bash(chmod +x /Users/HER2LO/.claude/skills/vv-plan-generator/scripts/parse_requirements.py)",
+      "Bash(cd /Users/HER2LO/.claude/skills/vv-plan-generator && python3 scripts/parse_requirements.py \"/Users/HER2LO/Library/CloudStorage/OneDrive-BoschGroup/Share/req_export_vv_plan.xlsx\" --output markdown)",
+      "Bash(python3 scripts/parse_requirements.py \"/Users/HER2LO/Library/CloudStorage/OneDrive-BoschGroup/Share/req_export_vv_plan.xlsx\" --output template --template-format excel)",
+      "Bash(chmod +x /Users/HER2LO/.claude/skills/vv-plan-generator/scripts/markdown_to_pdf.py)",
+      "Bash(pip3 install markdown weasyprint --quiet)",
+      "Bash(test -f /Users/HER2LO/Documents/Dev/schreinerei_nowak/README.md && echo \"exists\" || echo \"not exists\")",
+      "Bash(cd /Users/HER2LO/Documents/Dev/schreinerei-nowak/uploads && curl -L \"https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=800&h=800&fit=crop\" -o team_3.jpg)",
+      "Bash(cd /Users/HER2LO/Documents/Dev/schreinerei-nowak/uploads && curl -L \"https://images.unsplash.com/photo-1556911220-bff31c812dba?w=1200&h=800&fit=crop\" -o portfolio-kueche-1.jpg)",
+      "Bash(cd /Users/HER2LO/Documents/Dev/schreinerei-nowak/uploads && curl -L \"https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&h=800&fit=crop\" -o portfolio-kueche-2.jpg)",
+      "Bash(cd /Users/HER2LO/Documents/Dev/schreinerei-nowak/uploads && curl -L \"https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=1200&h=800&fit=crop\" -o portfolio-kueche-3.jpg)"
+    ]
+  }
+}

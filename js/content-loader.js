@@ -15,13 +15,33 @@ function parseFrontmatter(content) {
   const [, frontmatterText, markdown] = match;
   const data = {};
 
-  // Parse YAML-ähnliche Frontmatter mit Listen-Unterstützung
+  // Parse YAML-ähnliche Frontmatter mit Listen- und Mehrzeilen-Unterstützung
   const lines = frontmatterText.split('\n');
   let currentKey = null;
   let currentList = null;
   let currentListItem = null;
+  let multilineValue = null;
+  let multilineMode = null; // 'quoted', 'literal', 'folded'
 
-  lines.forEach(line => {
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+
+    // Mehrzeilige quoted strings (innerhalb von Anführungszeichen)
+    if (multilineMode === 'quoted') {
+      multilineValue += '\n' + line;
+      if (line.includes('"') && !line.endsWith('\\"')) {
+        // Ende des quoted string
+        const endIndex = line.lastIndexOf('"');
+        multilineValue = multilineValue.substring(0, multilineValue.lastIndexOf('\n') + 1 + endIndex);
+        data[currentKey] = multilineValue.replace(/^"|"$/g, '').replace(/\\n/g, '\n');
+        multilineMode = null;
+        multilineValue = null;
+        currentList = null;
+        currentListItem = null;
+      }
+      continue;
+    }
+
     // Liste-Item mit Unterpunkten
     if (line.match(/^\s{2,4}-\s+\w+:/)) {
       const keyMatch = line.match(/^\s{2,4}-\s+(\w+):\s*(.*)$/);
@@ -54,14 +74,27 @@ function parseFrontmatter(content) {
         const key = line.substring(0, colonIndex).trim();
         let value = line.substring(colonIndex + 1).trim();
 
+        // Mehrzeiliger quoted string beginnt
+        if (value.startsWith('"') && !value.endsWith('"')) {
+          multilineMode = 'quoted';
+          multilineValue = value;
+          currentKey = key;
+          continue;
+        }
+
+        // Entferne Anführungszeichen
         if (value.startsWith('"') && value.endsWith('"')) {
+          value = value.slice(1, -1);
+        } else if (value.startsWith("'") && value.endsWith("'")) {
           value = value.slice(1, -1);
         }
 
+        // Konvertiere Zahlen
         if (!isNaN(value) && value !== '') {
           value = Number(value);
         }
 
+        // Konvertiere Booleans
         if (value === 'true') value = true;
         if (value === 'false') value = false;
 
@@ -71,7 +104,7 @@ function parseFrontmatter(content) {
         currentListItem = null;
       }
     }
-  });
+  }
 
   return { data, content: markdown };
 }

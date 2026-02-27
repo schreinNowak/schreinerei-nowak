@@ -12,13 +12,18 @@ collections:
     folder: "data/services"
     create: true
     slug: "{{slug}}"
+    editor:
+      preview: false
     fields:
       - {label: "Titel", name: "title", widget: "string"}
       - {label: "Untertitel", name: "subtitle", widget: "string"}
-      - {label: "Beschreibung", name: "description", widget: "text"}
-      - {label: "Reihenfolge", name: "order", widget: "number"}
+      - label: "Beschreibung"
+        name: "description"
+        widget: "text"
+        hint: "Beschreibung der Leistung (wird auf der Startseite angezeigt)"
+      - {label: "Reihenfolge", name: "order", widget: "number", default: 1}
       - {label: "Bild", name: "image", widget: "image"}
-      - {label: "Details", name: "details", widget: "markdown", required: false}
+      - {label: "Ausführliche Details (optional)", name: "body", widget: "markdown", required: false, hint: "Detaillierte Informationen - werden aktuell nicht auf der Website angezeigt"}
 
   # Portfolio (NEU)
   - name: "portfolio"
