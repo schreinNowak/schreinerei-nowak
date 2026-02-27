@@ -1,7 +1,8 @@
 ---
 title: Fenster
 subtitle: Individuell
-description: Individuelle Fensterlösungen für Ihr Zuhause. Von der Beratung bis zur Montage – alles aus einer Hand.
+description: Individuelle Fensterlösungen für Ihr Zuhause. Von der Beratung bis
+  zur Montage – alles aus einer Hand..
 order: 1
 image: /uploads/service_1.jpg
 ---
