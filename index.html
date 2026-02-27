@@ -1,142 +1,262 @@
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Schreinerei für maßgeschneiderte Küchen, Möbel, Bäder und Innenausbau.">
-    <title>WoodCraft - Schreiner aus Leidenschaft</title>
+    <title>Schreinerei Nowak - Handwerk mit Leidenschaft</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <img src="logo.png" alt="WoodCraft Logo">
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <span class="logo-text">Schreinerei<br><strong>Nowak</strong></span>
+            </div>
+            <nav class="nav">
+                <button class="nav-toggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-list">
+                    <li><a href="#home" class="nav-link active">Startseite</a></li>
+                    <li><a href="#services" class="nav-link">Leistungen</a></li>
+                    <li><a href="#team" class="nav-link">Team</a></li>
+                    <li><a href="#contact" class="nav-link">Kontakt</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Startseite</a></li>
-                <li><a href="services.html">Küchen</a></li>
-                <li><a href="services.html">Möbel</a></li>
-                <li><a href="services.html">Tinyhouse</a></li>
-                <li><a href="about.html">Über uns</a></li>
-                <li><a href="contact.html">Kontakt</a></li>
-            </ul>
-        </nav>
     </header>
 
-    <!-- Parallax Section 0 -->
-    <div class="parallax parallax-3">
-    </div>
-
-    <!-- Content Section 3 -->
-    <div class="content">
-        <div class="content-text-item">
-            <h1>Schreiner. aus Leidenschaft.</h1>
-            <p>Willkommen bei <b>Schreinerei Nowak</b>, Ihrer Schreinerei für Fenster, Böden und Möbel. Kontaktieren Sie uns gerne für eine <b>persönliche, individuelle und kompetente</b> Beratung.</p>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <p class="hero-subtitle fade-in">Handwerk seit 1987</p>
+                <h1 class="hero-title fade-in-up">Schreiner aus<br>Leidenschaft</h1>
+                <p class="hero-description fade-in-up-delay">Willkommen bei <strong>Schreinerei Nowak</strong> – Ihrer Schreinerei für Fenster, Böden und Möbel. Kontaktieren Sie uns gerne für eine persönliche, individuelle und kompetente Beratung.</p>
+                <a href="#contact" class="hero-cta fade-in-up-delay-2">Jetzt beraten lassen</a>
+            </div>
         </div>
-        <div class="about-section">
-            <div class="about-container">
-              
-              <div class="about-item">
-                <img src="service_1.jpg" alt="Michael Nowak">
-                <h3>Michael Nowak. <span>Meister. Geschäftsführer.</span></h3>
-              </div>
-          
-              <div class="about-item">
-                <img src="service_2.jpg" alt="Geselle 1">
-                <h3>Igor Ovchek.<span>Geselle.</span></h3>
-              </div>
-          
-              <div class="about-item">
-                <img src="service_3.jpg" alt="Geselle 2">
-                <h3>Maik Musk.<span>Lehrling.</span></h3>
-              </div>
-          
-            </div>
-          </div>          
+        <div class="scroll-indicator">
+            <div class="scroll-line"></div>
         </div>
-    
-    <!-- Parallax Section 1 -->
-    <div class="parallax parallax-2">
-        <div class="service-section">
-            <h2>Unsere Services:</h2>
-            <div class="service-container">
-              
-            <div class="service-item">
-                <img src="service_1.jpg" alt="Fenster">
-                <h3>Fenster. <span>individuell.</span></h3>
-                <p>Individuelle Fensterlösungen, die sich perfekt in Ihr Zuhause einfügen. Wir bieten maßgeschneiderte Beratung und Design, um Ihre Wünsche zu realisieren.</p>
-            </div>
-            
-            <div class="service-item">
-                <img src="service_2.jpg" alt="Möbel">
-                <h3>Möbel. <span>einzigartig.</span></h3>
-                <p>Einzigartige Möbelstücke, die genau nach Ihren Vorstellungen gestaltet werden. Jedes Möbelstück wird bevorzugt aus hochwertigem Massivholz gefertigt, um Langlebigkeit und Stil zu gewährleisten.</p>
-            </div>
-            
-            <div class="service-item">
-                <img src="service_3.jpg" alt="Fußböden">
-                <h3>Fußböden. <span>Wohlbefinden.</span></h3>
-                <p>Unsere Fußböden schaffen eine Atmosphäre des Wohlbefindens. Mit natürlichen Materialien tragen sie nicht nur zu einer angenehmen Haptik bei, sondern fördern auch ein gesundes und ausgeglichenes Raumklima.</p>
-            </div>
-                
-          
-            </div>
-          </div>          
-    </div>
+    </section>
 
-    <!-- Content Section 1 -->
-    <section class="contact-section">
-        <div class="contact-info">
-          <h1>Kontakt.</h1>
-          <p><strong>Holzmanufaktur BENZ GmbH</strong><br>
-            Waldeckstraße 3<br>
-            79400 Kandern
-          </p>
-          <p>Telefon: <a href="tel:+4904976267518">0049 (0) 7626 7518</a><br>
-             E-Mail: <a href="mailto:info@holz-benz.de">info@holz-benz.de</a></p>
-          <p><strong>Öffnungszeiten:</strong><br>
-             Mo-Fr 07:00 - 16:00<br>
-             (Unsere Geschäftszeiten)</p>
-          <p><strong>Telefon/Büro:</strong><br>
-             Mo.-Fr. 8:00 - 13:00 Uhr</p>
-          <p>Wir beantworten alle Anfragen gerne per E-Mail, telefonisch oder persönlich.</p>
-          <p><strong>Termine nach Absprache:</strong><br>
-             Wir sind viel unterwegs und bemühen uns Telefonate schnellstmöglich zu beantworten. Bitten Sie gerne um Rückruf und vereinbaren einen Termin.</p>
-          <div class="map">
-            <!-- Google Maps Iframe -->
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8355.214780011582!2d9.837463760745974!3d49.700519517276945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a29b90c719b2a5%3A0x9cd22783bc61eb23!2sSchreinerei%20Nowak!5e0!3m2!1sde!2sde!4v1729113584789!5m2!1sde!2sde" width="300" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          </div>
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="services-overlay"></div>
+        <div class="container">
+            <div class="section-header section-header-light">
+                <p class="section-subtitle">Unsere Leistungen</p>
+                <h2 class="section-title">Was wir für Sie<br>erschaffen</h2>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-number">01</div>
+                    <div class="service-image-wrapper">
+                        <img src="service_1.jpg" alt="Fenster" class="service-image">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Fenster</h3>
+                        <p class="service-subtitle">Individuell</p>
+                        <p class="service-description">Individuelle Fensterlösungen, die sich perfekt in Ihr Zuhause einfügen. Wir bieten maßgeschneiderte Beratung und Design, um Ihre Wünsche zu realisieren.</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-number">02</div>
+                    <div class="service-image-wrapper">
+                        <img src="service_2.jpg" alt="Möbel" class="service-image">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Möbel</h3>
+                        <p class="service-subtitle">Einzigartig</p>
+                        <p class="service-description">Einzigartige Möbelstücke, die genau nach Ihren Vorstellungen gestaltet werden. Jedes Möbelstück wird bevorzugt aus hochwertigem Massivholz gefertigt.</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-number">03</div>
+                    <div class="service-image-wrapper">
+                        <img src="service_3.jpg" alt="Fußböden" class="service-image">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Fußböden</h3>
+                        <p class="service-subtitle">Wohlbefinden</p>
+                        <p class="service-description">Unsere Fußböden schaffen eine Atmosphäre des Wohlbefindens mit natürlichen Materialien für ein gesundes Raumklima.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        
-        <div class="contact-form">
-            <form action="#" method="POST">
-              <label for="name">Ihr Name*</label>
-              <input type="text" id="name" name="name" required>
-              
-              <label for="email">E-Mail oder Telefon*</label>
-              <input type="text" id="email" name="email" required>
-              
-              <label for="message">Was können wir für Sie tun?</label>
-              <textarea id="message" name="message" rows="5"></textarea>
-              
-              <div class="checkbox-container">
-                <input type="checkbox" id="consent" name="consent" required>
-                <label for="consent">Ich bin damit einverstanden, dass diese Daten zum Zweck der Kontaktaufnahme gespeichert werden.*</label>
-              </div>
-              
-              <p>* Kennzeichnet erforderliche Felder</p>
-              <button type="submit">Senden</button>
-            </form>
-          </div>          
-      </section>
-      
+    </section>
 
+    <!-- Team Section -->
+    <section id="team" class="team-section">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle">Unser Team</p>
+                <h2 class="section-title">Meisterhafte<br>Handwerkskunst</h2>
+            </div>
 
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-image-wrapper">
+                        <img src="service_1.jpg" alt="Michael Nowak" class="team-image">
+                        <div class="team-overlay"></div>
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Michael Nowak</h3>
+                        <p class="team-role">Meister · Geschäftsführer</p>
+                    </div>
+                </div>
 
-    <footer>
-        <p>&copy; 2024 Schreinerei Nowak. Alle Rechte vorbehalten.</p>
+                <div class="team-card">
+                    <div class="team-image-wrapper">
+                        <img src="service_2.jpg" alt="Igor Ovchek" class="team-image">
+                        <div class="team-overlay"></div>
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Igor Ovchek</h3>
+                        <p class="team-role">Geselle</p>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-image-wrapper">
+                        <img src="service_3.jpg" alt="Maik Musk" class="team-image">
+                        <div class="team-overlay"></div>
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Maik Musk</h3>
+                        <p class="team-role">Lehrling</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container-wide">
+            <div class="contact-grid">
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <h2 class="contact-title">Kontakt</h2>
+
+                    <div class="contact-details">
+                        <div class="contact-block">
+                            <p class="contact-label">Adresse</p>
+                            <p class="contact-value">
+                                <strong>Schreinerei Nowak</strong><br>
+                                Kleinrinderfelder Str. 17<br>
+                                97271 Kleinrinderfeld
+                            </p>
+                        </div>
+
+                        <div class="contact-block">
+                            <p class="contact-label">Erreichbarkeit</p>
+                            <p class="contact-value">
+                                <a href="tel:+4993661234556" class="contact-link">09366 1234556</a><br>
+                                <a href="mailto:info@schreinerei-nowak.de" class="contact-link">info@schreinerei-nowak.de</a>
+                            </p>
+                        </div>
+
+                        <div class="contact-block">
+                            <p class="contact-label">Öffnungszeiten</p>
+                            <p class="contact-value">
+                                Mo-Fr 07:00 - 16:00<br>
+                                <span class="contact-note">(Unsere Geschäftszeiten)</span>
+                            </p>
+                        </div>
+
+                        <div class="contact-block">
+                            <p class="contact-label">Telefon / Büro</p>
+                            <p class="contact-value">
+                                Mo-Fr 8:00 - 13:00 Uhr
+                            </p>
+                        </div>
+
+                        <div class="contact-block">
+                            <p class="contact-text">
+                                Wir sind oft auf Baustellen unterwegs – deshalb erreichen Sie uns am besten per E-Mail oder mit einer Rückrufbitte. Wir melden uns innerhalb von 24 Stunden.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="map-wrapper">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2558.8!2d9.9!3d49.85!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDnCsDUxJzAwLjAiTiA5wrA1NCcwMC4wIkU!5e0!3m2!1sde!2sde!4v1645000000000!5m2!1sde!2sde&q=Kleinrinderfelder+Str.+17,+97271+Kleinrinderfeld"
+                            width="100%"
+                            height="400"
+                            style="border:0;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper">
+                    <div class="form-header">
+                        <h3 class="form-title">Anfrage senden</h3>
+                        <p class="form-description">Teilen Sie uns Ihr Projekt mit – wir melden uns innerhalb von 24 Stunden.</p>
+                    </div>
+
+                    <form class="contact-form" action="#" method="POST">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Ihr Name*</label>
+                            <input type="text" id="name" name="name" class="form-input" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="form-label">E-Mail oder Telefon*</label>
+                            <input type="text" id="email" name="email" class="form-input" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message" class="form-label">Was können wir für Sie tun?</label>
+                            <textarea id="message" name="message" rows="5" class="form-textarea"></textarea>
+                        </div>
+
+                        <div class="form-checkbox">
+                            <input type="checkbox" id="consent" name="consent" required>
+                            <label for="consent" class="checkbox-label">
+                                Ich bin damit einverstanden, dass diese Daten zum Zweck der Kontaktaufnahme gespeichert werden.*
+                            </label>
+                        </div>
+
+                        <p class="form-note">* Kennzeichnet erforderliche Felder</p>
+
+                        <button type="submit" class="form-submit">
+                            <span>Nachricht senden</span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">&copy; 2024 Schreinerei Nowak. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

@@ -1,36 +1,165 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Learn more about WoodCraft, our values, and our commitment to quality and sustainability.">
-    <title>WoodCraft - About Us</title>
+    <meta name="description" content="Über uns - Schreinerei Nowak. Handwerk seit 1987 mit Leidenschaft für maßgeschneiderte Lösungen.">
+    <title>Über uns - Schreinerei Nowak</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>About Us</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <span class="logo-text">Schreinerei<br><strong>Nowak</strong></span>
+            </div>
+            <nav class="nav">
+                <button class="nav-toggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Startseite</a></li>
+                    <li><a href="services.html" class="nav-link">Leistungen</a></li>
+                    <li><a href="about.html" class="nav-link active">Über uns</a></li>
+                    <li><a href="contact.html" class="nav-link">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <section class="about">
-        <h2>Our Story</h2>
-        <p>WoodCraft is a third-generation carpentry business with a passion for quality woodwork and sustainable practices.</p>
-
-        <h2>Our Values</h2>
-        <p>We believe in delivering exceptional craftsmanship, using only the best materials, and respecting the environment through sustainable practices.</p>
+    <!-- Hero Section -->
+    <section class="hero" style="min-height: 50vh;">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <p class="hero-subtitle fade-in">Seit 1987</p>
+                <h1 class="hero-title fade-in-up">Über uns</h1>
+                <p class="hero-description fade-in-up-delay">Tradition, Handwerk und Leidenschaft – das zeichnet uns aus.</p>
+            </div>
+        </div>
     </section>
 
-    <footer>
-        <p>&copy; 2024 WoodCraft. All Rights Reserved.</p>
+    <!-- About Section -->
+    <section class="team-section">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle">Unsere Geschichte</p>
+                <h2 class="section-title">Handwerk seit 1987</h2>
+            </div>
+
+            <div style="max-width: 800px; margin: 0 auto;">
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem; color: #645749;">
+                    Seit über 35 Jahren steht <strong>Schreinerei Nowak</strong> für höchste Handwerkskunst und maßgeschneiderte Lösungen.
+                    Was uns besonders macht: Wir sind ein motiviertes, kleines Team – und unser Meister ist meist mit auf der Baustelle.
+                    Das garantiert Qualität in jedem Detail.
+                </p>
+
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem; color: #645749;">
+                    Unsere Kunden reichen von <strong>öffentlichen Einrichtungen</strong> wie der Residenz Würzburg, Krankenhäusern,
+                    Ämtern und Schulen bis hin zu <strong>Privatkunden</strong>, die auf individuelle Beratung und persönliche
+                    Betreuung Wert legen.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="services-section">
+        <div class="services-overlay"></div>
+        <div class="container">
+            <div class="section-header section-header-light">
+                <p class="section-subtitle">Unser Team</p>
+                <h2 class="section-title">Mit Herz und<br>Meisterhand</h2>
+            </div>
+
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-image-wrapper">
+                        <img src="service_1.jpg" alt="Michael Nowak" class="team-image">
+                        <div class="team-overlay"></div>
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Michael Nowak</h3>
+                        <p class="team-role">Meister · Geschäftsführer</p>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-image-wrapper">
+                        <img src="service_2.jpg" alt="Igor Ovchek" class="team-image">
+                        <div class="team-overlay"></div>
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Igor Ovchek</h3>
+                        <p class="team-role">Geselle</p>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-image-wrapper">
+                        <img src="service_3.jpg" alt="Maik Musk" class="team-image">
+                        <div class="team-overlay"></div>
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Maik Musk</h3>
+                        <p class="team-role">Lehrling</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="team-section">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle">Unsere Werte</p>
+                <h2 class="section-title">Qualität und<br>Zuverlässigkeit</h2>
+            </div>
+
+            <div class="services-grid" style="max-width: 900px; margin: 0 auto;">
+                <div style="text-align: center; padding: 2rem;">
+                    <div class="service-number" style="margin-bottom: 1rem;">01</div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #8E6C4B;">Meisterliche Qualität</h3>
+                    <p style="color: #645749; line-height: 1.6;">
+                        Der Meister mit auf der Baustelle – das garantiert höchste Qualitätsstandards bei jedem Projekt.
+                    </p>
+                </div>
+
+                <div style="text-align: center; padding: 2rem;">
+                    <div class="service-number" style="margin-bottom: 1rem;">02</div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #8E6C4B;">Individuelle Beratung</h3>
+                    <p style="color: #645749; line-height: 1.6;">
+                        Wir nehmen uns Zeit für Sie – von der ersten Idee bis zur perfekten Umsetzung.
+                    </p>
+                </div>
+
+                <div style="text-align: center; padding: 2rem;">
+                    <div class="service-number" style="margin-bottom: 1rem;">03</div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #8E6C4B;">Erfahrung & Tradition</h3>
+                    <p style="color: #645749; line-height: 1.6;">
+                        Seit 1987 vertrauen öffentliche Einrichtungen und Privatkunden auf unsere Expertise.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">&copy; 2024 Schreinerei Nowak. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

@@ -1,44 +1,163 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contact WoodCraft for custom woodwork inquiries or to discuss your next project.">
-    <title>WoodCraft - Contact Us</title>
+    <meta name="description" content="Kontaktieren Sie Schreinerei Nowak - Ihre Schreinerei in Kleinrinderfeld für individuelle Beratung.">
+    <title>Kontakt - Schreinerei Nowak</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Contact Us</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <span class="logo-text">Schreinerei<br><strong>Nowak</strong></span>
+            </div>
+            <nav class="nav">
+                <button class="nav-toggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Startseite</a></li>
+                    <li><a href="services.html" class="nav-link">Leistungen</a></li>
+                    <li><a href="about.html" class="nav-link">Über uns</a></li>
+                    <li><a href="contact.html" class="nav-link active">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <section class="contact">
-        <h2>Get in Touch</h2>
-        <form action="#" method="POST">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" required></textarea>
-
-            <button type="submit">Send Message</button>
-        </form>
+    <!-- Hero Section -->
+    <section class="hero" style="min-height: 40vh;">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <p class="hero-subtitle fade-in">Wir sind für Sie da</p>
+                <h1 class="hero-title fade-in-up">Kontakt</h1>
+            </div>
+        </div>
     </section>
 
-    <footer>
-        <p>&copy; 2024 WoodCraft. All Rights Reserved.</p>
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container-wide">
+            <div class="contact-grid">
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <h2 class="contact-title">Kontakt</h2>
+
+                    <div class="contact-details">
+                        <div class="contact-block">
+                            <p class="contact-label">Adresse</p>
+                            <p class="contact-value">
+                                <strong>Schreinerei Nowak</strong><br>
+                                Kleinrinderfelder Str. 17<br>
+                                97271 Kleinrinderfeld
+                            </p>
+                        </div>
+
+                        <div class="contact-block">
+                            <p class="contact-label">Erreichbarkeit</p>
+                            <p class="contact-value">
+                                <a href="tel:+4993661234556" class="contact-link">09366 1234556</a><br>
+                                <a href="mailto:info@schreinerei-nowak.de" class="contact-link">info@schreinerei-nowak.de</a>
+                            </p>
+                        </div>
+
+                        <div class="contact-block">
+                            <p class="contact-label">Öffnungszeiten</p>
+                            <p class="contact-value">
+                                Mo-Fr 07:00 - 16:00<br>
+                                <span class="contact-note">(Unsere Geschäftszeiten)</span>
+                            </p>
+                        </div>
+
+                        <div class="contact-block">
+                            <p class="contact-label">Telefon / Büro</p>
+                            <p class="contact-value">
+                                Mo-Fr 8:00 - 13:00 Uhr
+                            </p>
+                        </div>
+
+                        <div class="contact-block">
+                            <p class="contact-text">
+                                Wir sind oft auf Baustellen unterwegs – deshalb erreichen Sie uns am besten per E-Mail oder mit einer Rückrufbitte. Wir melden uns innerhalb von 24 Stunden.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="map-wrapper">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2558.8!2d9.9!3d49.85!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDnCsDUxJzAwLjAiTiA5wrA1NCcwMC4wIkU!5e0!3m2!1sde!2sde!4v1645000000000!5m2!1sde!2sde&q=Kleinrinderfelder+Str.+17,+97271+Kleinrinderfeld"
+                            width="100%"
+                            height="400"
+                            style="border:0;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper">
+                    <div class="form-header">
+                        <h3 class="form-title">Anfrage senden</h3>
+                        <p class="form-description">Teilen Sie uns Ihr Projekt mit – wir melden uns innerhalb von 24 Stunden.</p>
+                    </div>
+
+                    <form class="contact-form" action="#" method="POST">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Ihr Name*</label>
+                            <input type="text" id="name" name="name" class="form-input" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="form-label">E-Mail oder Telefon*</label>
+                            <input type="text" id="email" name="email" class="form-input" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message" class="form-label">Was können wir für Sie tun?</label>
+                            <textarea id="message" name="message" rows="5" class="form-textarea"></textarea>
+                        </div>
+
+                        <div class="form-checkbox">
+                            <input type="checkbox" id="consent" name="consent" required>
+                            <label for="consent" class="checkbox-label">
+                                Ich bin damit einverstanden, dass diese Daten zum Zweck der Kontaktaufnahme gespeichert werden.*
+                            </label>
+                        </div>
+
+                        <p class="form-note">* Kennzeichnet erforderliche Felder</p>
+
+                        <button type="submit" class="form-submit">
+                            <span>Nachricht senden</span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">&copy; 2024 Schreinerei Nowak. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
