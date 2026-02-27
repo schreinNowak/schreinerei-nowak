@@ -61,7 +61,7 @@ collections:
   - name: "settings"
     label: "Einstellungen"
     files:
-      - label: "Firmendaten"
+      - label: "Firmendaten & Kontakt"
         name: "company"
         file: "data/settings.json"
         fields:
@@ -70,3 +70,36 @@ collections:
           - {label: "Telefon", name: "phone", widget: "string"}
           - {label: "E-Mail", name: "email", widget: "string"}
           - {label: "Öffnungszeiten", name: "hours", widget: "text"}
+          - {label: "Bürozeiten", name: "officeHours", widget: "string", required: false}
+          - {label: "Hinweistext Kontakt", name: "contactNote", widget: "text", required: false, hint: "Text unter den Kontaktdaten"}
+      - label: "Homepage Texte"
+        name: "homepage"
+        file: "data/homepage.json"
+        fields:
+          - label: "Hero Bereich"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Untertitel", name: "subtitle", widget: "string", hint: "z.B. 'Handwerk seit 1987'"}
+              - {label: "Haupttitel", name: "title", widget: "string", hint: "z.B. 'Schreiner aus Leidenschaft'"}
+              - {label: "Beschreibung", name: "description", widget: "text"}
+              - {label: "Button-Text", name: "ctaText", widget: "string", hint: "z.B. 'Jetzt beraten lassen'"}
+          - label: "Leistungen Bereich"
+            name: "services"
+            widget: "object"
+            fields:
+              - {label: "Untertitel", name: "subtitle", widget: "string", hint: "z.B. 'Unsere Leistungen'"}
+              - {label: "Haupttitel", name: "title", widget: "string", hint: "z.B. 'Was wir für Sie erschaffen'"}
+          - label: "Team Bereich"
+            name: "team"
+            widget: "object"
+            fields:
+              - {label: "Untertitel", name: "subtitle", widget: "string", hint: "z.B. 'Unser Team'"}
+              - {label: "Haupttitel", name: "title", widget: "string", hint: "z.B. 'Meisterhafte Handwerkskunst'"}
+          - label: "Portfolio Bereich"
+            name: "portfolio"
+            widget: "object"
+            fields:
+              - {label: "Untertitel", name: "subtitle", widget: "string", hint: "z.B. 'Referenzen'"}
+              - {label: "Haupttitel", name: "title", widget: "string", hint: "z.B. 'Aktuelle Projekte'"}
+              - {label: "Button-Text", name: "ctaText", widget: "string", hint: "z.B. 'Alle Projekte ansehen'"}

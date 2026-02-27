@@ -253,21 +253,102 @@ async function loadFeaturedPortfolio() {
   }
 }
 
+// Homepage-Texte laden
+async function loadHomepageContent() {
+  try {
+    const response = await fetch('/data/homepage.json');
+    const content = await response.json();
+
+    // Hero Section
+    const heroSubtitle = document.querySelector('.hero-subtitle');
+    if (heroSubtitle) heroSubtitle.textContent = content.hero.subtitle;
+
+    const heroTitle = document.querySelector('.hero-title');
+    if (heroTitle) heroTitle.innerHTML = content.hero.title.replace(/\n/g, '<br>');
+
+    const heroDescription = document.querySelector('.hero-description');
+    if (heroDescription) {
+      // Finde "Schreinerei Nowak" und mache es bold
+      const text = content.hero.description.replace('Schreinerei Nowak', '<strong>Schreinerei Nowak</strong>');
+      heroDescription.innerHTML = text;
+    }
+
+    const heroCta = document.querySelector('.hero-cta');
+    if (heroCta) heroCta.textContent = content.hero.ctaText;
+
+    // Services Section Headers
+    const servicesSubtitle = document.querySelector('#services .section-subtitle');
+    if (servicesSubtitle) servicesSubtitle.textContent = content.services.subtitle;
+
+    const servicesTitle = document.querySelector('#services .section-title');
+    if (servicesTitle) servicesTitle.innerHTML = content.services.title.replace(/\n/g, '<br>');
+
+    // Team Section Headers
+    const teamSubtitle = document.querySelector('#team .section-subtitle');
+    if (teamSubtitle) teamSubtitle.textContent = content.team.subtitle;
+
+    const teamTitle = document.querySelector('#team .section-title');
+    if (teamTitle) teamTitle.innerHTML = content.team.title.replace(/\n/g, '<br>');
+
+    // Portfolio Section Headers
+    const portfolioSubtitle = document.querySelector('.featured-portfolio .section-subtitle');
+    if (portfolioSubtitle) portfolioSubtitle.textContent = content.portfolio.subtitle;
+
+    const portfolioTitle = document.querySelector('.featured-portfolio .section-title');
+    if (portfolioTitle) portfolioTitle.innerHTML = content.portfolio.title.replace(/\n/g, '<br>');
+
+    const portfolioCta = document.querySelector('.featured-portfolio .btn-primary');
+    if (portfolioCta) portfolioCta.textContent = content.portfolio.ctaText;
+
+  } catch (error) {
+    console.error('Homepage-Content konnte nicht geladen werden:', error);
+  }
+}
+
 // Settings laden (für Kontaktdaten)
 async function loadSettings() {
   try {
     const response = await fetch('/data/settings.json');
     const settings = await response.json();
 
-    // Aktualisiere Kontaktdaten wenn Elemente vorhanden
-    const phoneElement = document.querySelector('.contact-phone');
-    if (phoneElement) phoneElement.textContent = settings.phone;
+    // Telefon (mehrfach vorhanden)
+    document.querySelectorAll('.contact-phone, .footer-phone').forEach(el => {
+      el.textContent = settings.phone;
+      // Update auch href wenn es ein Link ist
+      const parent = el.closest('a');
+      if (parent) parent.href = `tel:+49${settings.phone.replace(/\s/g, '')}`;
+    });
 
-    const emailElement = document.querySelector('.contact-email');
-    if (emailElement) emailElement.textContent = settings.email;
+    // E-Mail (mehrfach vorhanden)
+    document.querySelectorAll('.contact-email, .footer-email').forEach(el => {
+      el.textContent = settings.email;
+      const parent = el.closest('a');
+      if (parent) parent.href = `mailto:${settings.email}`;
+    });
 
-    const addressElement = document.querySelector('.contact-address');
-    if (addressElement) addressElement.innerHTML = settings.address.replace(/\n/g, '<br>');
+    // Adresse
+    const addressElement = document.querySelector('.contact-value strong');
+    if (addressElement && addressElement.parentElement) {
+      addressElement.parentElement.innerHTML = `<strong>${settings.companyName}</strong><br>${settings.address.replace(/\n/g, '<br>')}`;
+    }
+
+    // Öffnungszeiten
+    const hoursElement = document.querySelector('.contact-block:nth-child(3) .contact-value');
+    if (hoursElement) {
+      hoursElement.innerHTML = `${settings.hours}<br><span class="contact-note">(Unsere Geschäftszeiten)</span>`;
+    }
+
+    // Bürozeiten
+    if (settings.officeHours) {
+      const officeElement = document.querySelector('.contact-block:nth-child(4) .contact-value');
+      if (officeElement) officeElement.textContent = settings.officeHours;
+    }
+
+    // Hinweistext
+    if (settings.contactNote) {
+      const noteElement = document.querySelector('.contact-text');
+      if (noteElement) noteElement.textContent = settings.contactNote;
+    }
 
   } catch (error) {
     console.error('Settings konnten nicht geladen werden:', error);
@@ -276,6 +357,7 @@ async function loadSettings() {
 
 // Beim Laden der Seite ausführen
 document.addEventListener('DOMContentLoaded', () => {
+  loadHomepageContent();
   loadServices();
   loadTeam();
   loadFeaturedPortfolio();
